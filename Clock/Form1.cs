@@ -7,12 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
+using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Clock
 {
 	public partial class Form1 : Form
 	{
+		private string[] fonts;
+
+		public string[] Fonts
+		{
+			get { return fonts; }
+			set { fonts = value; }
+		}
+
 		public Form1()
 		{
 			InitializeComponent();
@@ -22,7 +32,38 @@ namespace Clock
 				System.Windows.Forms.Screen.PrimaryScreen.Bounds.Top + 150
 			);
 			ControlsVisible(false);
+			//string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+			//MessageBox.Show(this, currentDirectory, "Current directory", MessageBoxButtons.OK);
+			SetFontDirectory();
+			CreateCustomLabelFont();
+		}
 
+		void SetFontDirectory()
+		{
+			string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+			MessageBox.Show(this, currentDirectory, "Current directory", MessageBoxButtons.OK);
+			string[] currentDirectoryItems = currentDirectory.Split('\\');
+			Array.Resize(ref currentDirectoryItems, currentDirectoryItems.Length - 2);
+			string newCurrentDirectory = "";
+			foreach(string i in currentDirectoryItems)
+			{
+				newCurrentDirectory += i;
+				newCurrentDirectory += "\\";
+			}
+			newCurrentDirectory += "Fonts";
+			//MessageBox.Show(this, $"{currentDirectory}\n{newCurrentDirectory}", "Current directory", MessageBoxButtons.OK);
+			Fonts = Directory.GetFiles(newCurrentDirectory);
+		}
+		void CreateCustomLabelFont()
+		{
+			PrivateFontCollection pfc = new PrivateFontCollection();
+			pfc.AddFontFile("..\\..\\Fonts\\DIGITALDREAM.ttf");
+			Font font = new Font(pfc.Families[0], label1.Font.Size/2);
+			pfc.Dispose();
+			label1.Font = font;
+
+			label1.BackColor = Color.Black;
+			label1.ForeColor = Color.Red;
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)
@@ -32,6 +73,7 @@ namespace Clock
 			{
 				label1.Text += DateTime.Now.ToString("dd.MM.yyyy");
 			}
+			
 		}
 
 		private void btnClose_Click(object sender, EventArgs e)
@@ -72,7 +114,10 @@ namespace Clock
 			btnDateCalculator.Visible = true;
 			btnHideControls.Visible = true;
 			btnClose.Visible = true;*/
-			ControlsVisible(true);
+			
+			//ControlsVisible(true);
+
+
 		}
 
 		private void cmExit_Click(object sender, EventArgs e)
@@ -102,5 +147,24 @@ namespace Clock
 			//cmOverAllWindows.Checked = cmOverAllWindows.Checked;
 			
 		}
+
+		private void cms_lbl1_ItemShowControls_Click(object sender, EventArgs e)
+		{
+			ControlsVisible(cms_lbl1_ItemShowControls.Checked);
+		}
+
+		private void cmslbl1_Opening(object sender, CancelEventArgs e)
+		{
+
+		}
+
+		private void cms_lbl1_ItemFont_Click(object sender, EventArgs e)
+		{
+			FormChooseFont fcf = new FormChooseFont();
+			fcf.Show(this);
+
+		}
+
+		
 	}
 }
