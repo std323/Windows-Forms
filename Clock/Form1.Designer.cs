@@ -173,52 +173,51 @@
             this.toolStripSeparator1,
             this.cmExit});
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(181, 148);
-			//this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+			this.contextMenuStrip1.Size = new System.Drawing.Size(167, 126);
 			// 
 			// cmOverAllWindows
 			// 
 			this.cmOverAllWindows.CheckOnClick = true;
 			this.cmOverAllWindows.Name = "cmOverAllWindows";
-			this.cmOverAllWindows.Size = new System.Drawing.Size(180, 22);
+			this.cmOverAllWindows.Size = new System.Drawing.Size(166, 22);
 			this.cmOverAllWindows.Text = "Over all Windows";
 			this.cmOverAllWindows.Click += new System.EventHandler(this.cmOverAllWindows_Click);
 			// 
 			// cmShowDate
 			// 
 			this.cmShowDate.Name = "cmShowDate";
-			this.cmShowDate.Size = new System.Drawing.Size(180, 22);
+			this.cmShowDate.Size = new System.Drawing.Size(166, 22);
 			this.cmShowDate.Text = "Show date";
 			this.cmShowDate.Click += new System.EventHandler(this.cmShowDate_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(163, 6);
 			// 
 			// cmShowControls
 			// 
 			this.cmShowControls.Name = "cmShowControls";
-			this.cmShowControls.Size = new System.Drawing.Size(180, 22);
+			this.cmShowControls.Size = new System.Drawing.Size(166, 22);
 			this.cmShowControls.Text = "Show controls";
 			this.cmShowControls.Click += new System.EventHandler(this.cmShowControls_Click);
 			// 
 			// cmHideControls
 			// 
 			this.cmHideControls.Name = "cmHideControls";
-			this.cmHideControls.Size = new System.Drawing.Size(180, 22);
+			this.cmHideControls.Size = new System.Drawing.Size(166, 22);
 			this.cmHideControls.Text = "Hide controls";
 			this.cmHideControls.Click += new System.EventHandler(this.cmHideControls_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
 			// 
 			// cmExit
 			// 
 			this.cmExit.Name = "cmExit";
-			this.cmExit.Size = new System.Drawing.Size(180, 22);
+			this.cmExit.Size = new System.Drawing.Size(166, 22);
 			this.cmExit.Text = "Exit";
 			this.cmExit.Click += new System.EventHandler(this.cmExit_Click);
 			// 
